@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Text Color Changer | Rainbow & Gradient Effects  </title>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #fd79a8;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --rainbow: linear-gradient(90deg, 
+                #ff0000, #ff8000, #ffff00, 
+                #80ff00, #00ff00, #00ff80, 
+                #00ffff, #0080ff, #0000ff, 
+                #8000ff, #ff00ff, #ff0080);
+
+ <meta name="description" content="Change text colors instantly with rainbow, gradient, and fade effects. No signup needed. Works on all devices - 100% free!">
+
+    <!-- (Optional) Open Graph tags for social media -->
+    <meta property="og:title" content="Free Text Color Changer Online">
+    <meta property="og:description" content="Create rainbow & gradient text instantly">
+    <meta property="og:image" content="https://yourusername.github.io/preview-image.png">
+    <meta property="og:url" content="https://yourusername.github.io">
+    
+    <!-- Your CSS file link -->
+    <link rel="stylesheet" href="styles.css">
+
+
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--rainbow);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .logo .ai {
+            font-size: 1.5rem;
+            vertical-align: super;
+            color: var(--secondary);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .main-content {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+        }
+
+        .text-section, .controls-section {
+            flex: 1;
+            background-color: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .text-area {
+            width: 100%;
+            height: 300px;
+            padding: 1rem;
+            border: 2px solid #dfe6e9;
+            border-radius: 0.5rem;
+            resize: none;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .text-display {
+            width: 100%;
+            min-height: 300px;
+            padding: 1rem;
+            border: 2px solid #dfe6e9;
+            border-radius: 0.5rem;
+            background-color: white;
+            overflow-wrap: break-word;
+        }
+
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .control-group h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .color-picker {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.active {
+            transform: scale(1.2);
+            border-color: var(--dark);
+        }
+
+        .preset-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .preset-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 2rem;
+            background-color: var(--light);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .preset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .preset-btn.rainbow {
+            background: var(--rainbow);
+            color: white;
+        }
+
+        .preset-btn.gradient {
+            background: linear-gradient(90deg, #6c5ce7, #fd79a8);
+            color: white;
+        }
+
+        .preset-btn.pastel {
+            background: linear-gradient(90deg, #a8e6cf, #dcedc1, #ffd3b6, #ffaaa5);
+        }
+
+        .effect-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .effect-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary);
+            border-radius: 2rem;
+            background-color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .effect-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .effect-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        input[type="color"] {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        input[type="color"]::-webkit-color-swatch {
+            border: none;
+            border-radius: 50%;
+        }
+
+        input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5649c0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--dark);
+            border: 1px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f5f5f5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">TextColor<span class="ai">.ai</span></div>
+            <h1>Online Text Color Changer</h1>
+            <p>Transform your text with beautiful colors and effects</p>
+        </header>
+
+        <main>
+            <div class="main-content">
+                <div class="text-section">
+                    <h2>Enter Your Text</h2>
+                    <textarea class="text-area" id="inputText" placeholder="Type or paste your text here..."></textarea>
+                    <div class="action-buttons">
+                        <button id="clearBtn" class="btn btn-secondary">Clear Text</button>
+                    </div>
+                </div>
+
+                <div class="controls-section">
+                    <h2>Color Controls</h2>
+                    
+                    <div class="control-group">
+                        <h3>Single Color</h3>
+                        <div class="color-picker">
+                            <input type="color" id="colorPicker" value="#6c5ce7">
+                            <span>or select preset:</span>
+                            <div class="color-option" style="background-color: #6c5ce7;" data-color="#6c5ce7"></div>
+                            <div class="color-option" style="background-color: #fd79a8;" data-color="#fd79a8"></div>
+                            <div class="color-option" style="background-color: #00b894;" data-color="#00b894"></div>
+                            <div class="color-option" style="background-color: #0984e3;" data-color="#0984e3"></div>
+                            <div class="color-option" style="background-color: #fdcb6e;" data-color="#fdcb6e"></div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>Color Presets</h3>
+                        <div class="preset-buttons">
+                            <button class="preset-btn rainbow" data-preset="rainbow">Rainbow</button>
+                            <button class="preset-btn gradient" data-preset="gradient">Gradient</button>
+                            <button class="preset-btn pastel" data-preset="pastel">Pastel</button>
+                            <button class="preset-btn" data-preset="neon">Neon</button>
+                            <button class="preset-btn" data-preset="monochrome">Monochrome</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>Effects</h3>
+                        <div class="effect-options">
+                            <button class="effect-btn" data-effect="none">None</button>
+                            <button class="effect-btn" data-effect="fade">Fade</button>
+                            <button class="effect-btn" data-effect="alternate">Alternate</button>
+                            <button class="effect-btn" data-effect="random">Random</button>
+                            <button class="effect-btn" data-effect="highlight">Highlight</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>Preview</h3>
+                        <div class="text-display" id="textDisplay">
+                            Your colored text will appear here...
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="copyBtn" class="btn btn-primary">Copy Text</button>
+                        <button id="downloadBtn" class="btn btn-primary">Download as HTML</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2023 TextColor.ai - Free online text color changer tool</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputText = document.getElementById('inputText');
+            const textDisplay = document.getElementById('textDisplay');
+            const colorPicker = document.getElementById('colorPicker');
+            const colorOptions = document.querySelectorAll('.color-option');
+            const presetButtons = document.querySelectorAll('.preset-btn');
+            const effectButtons = document.querySelectorAll('.effect-btn');
+            const clearBtn = document.getElementById('clearBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            let currentColor = '#6c5ce7';
+            let currentPreset = 'none';
+            let currentEffect = 'none';
+
+            // Initialize
+            updateTextDisplay();
+
+            // Event listeners
+            inputText.addEventListener('input', updateTextDisplay);
+            colorPicker.addEventListener('input', function() {
+                currentColor = this.value;
+                currentPreset = 'none';
+                resetPresetButtons();
+                updateTextDisplay();
+            });
+
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    currentColor = this.dataset.color;
+                    colorPicker.value = currentColor;
+                    currentPreset = 'none';
+                    resetPresetButtons();
+                    updateTextDisplay();
+                    
+                    // Update active state
+                    colorOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            presetButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    currentPreset = this.dataset.preset;
+                    resetEffectButtons();
+                    updateTextDisplay();
+                    
+                    // Update active state
+                    presetButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            effectButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    currentEffect = this.dataset.effect;
+                    updateTextDisplay();
+                    
+                    // Update active state
+                    effectButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            clearBtn.addEventListener('click', function() {
+                inputText.value = '';
+                updateTextDisplay();
+            });
+
+            copyBtn.addEventListener('click', function() {
+                const range = document.createRange();
+                range.selectNode(textDisplay);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+                
+                // Show feedback
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                }, 2000);
+            });
+
+            downloadBtn.addEventListener('click', function() {
+                const htmlContent = `<!DOCTYPE html>
+<html>
+<head>
+    <title>Colored Text</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+    </style>
+</head>
+<body>
+    ${textDisplay.innerHTML}
+</body>
+</html>`;
+                
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'colored-text.html';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+
+            // Functions
+            function updateTextDisplay() {
+                const text = inputText.value || 'Your colored text will appear here...';
+                
+                if (currentPreset !== 'none') {
+                    textDisplay.innerHTML = applyPreset(text, currentPreset, currentEffect);
+                } else {
+                    textDisplay.innerHTML = applyColor(text, currentColor, currentEffect);
+                }
+            }
+
+            function applyColor(text, color, effect) {
+                if (effect === 'none') {
+                    return `<span style="color: ${color}">${escapeHtml(text)}</span>`;
+                } else if (effect === 'fade') {
+                    return applyFadeEffect(text, color, color);
+                } else if (effect === 'alternate') {
+                    return applyAlternateEffect(text, color, getComplementaryColor(color));
+                } else if (effect === 'random') {
+                    return applyRandomEffect(text);
+                } else if (effect === 'highlight') {
+                    return `<span style="background-color: ${color}; color: white; padding: 2px 4px; border-radius: 3px;">${escapeHtml(text)}</span>`;
+                }
+                return escapeHtml(text);
+            }
+
+            function applyPreset(text, preset, effect) {
+                if (preset === 'rainbow') {
+                    if (effect === 'none' || effect === 'highlight') {
+                        return applyRainbowEffect(text);
+                    } else if (effect === 'fade') {
+                        return applyRainbowFadeEffect(text);
+                    } else if (effect === 'alternate') {
+                        return applyRainbowAlternateEffect(text);
+                    } else if (effect === 'random') {
+                        return applyRandomEffect(text);
+                    }
+                } else if (preset === 'gradient') {
+                    return applyGradientEffect(text, ['#6c5ce7', '#fd79a8']);
+                } else if (preset === 'pastel') {
+                    return applyGradientEffect(text, ['#a8e6cf', '#dcedc1', '#ffd3b6', '#ffaaa5']);
+                } else if (preset === 'neon') {
+                    return applyGradientEffect(text, ['#ff00ff', '#00ffff', '#ffff00']);
+                } else if (preset === 'monochrome') {
+                    return applyGradientEffect(text, ['#000000', '#333333', '#666666', '#999999', '#cccccc']);
+                }
+                return escapeHtml(text);
+            }
+
+            function applyRainbowEffect(text) {
+                const rainbowColors = [
+                    '#ff0000', '#ff8000', '#ffff00', 
+                    '#80ff00', '#00ff00', '#00ff80', 
+                    '#00ffff', '#0080ff', '#0000ff', 
+                    '#8000ff', '#ff00ff', '#ff0080'
+                ];
+                
+                let result = '';
+                for (let i = 0; i < text.length; i++) {
+                    const color = rainbowColors[i % rainbowColors.length];
+                    result += `<span style="color: ${color}">${escapeHtml(text[i])}</span>`;
+                }
+                return result;
+            }
+
+            function applyRainbowFadeEffect(text) {
+                const rainbowColors = [
+                    '#ff0000', '#ff8000', '#ffff00', 
+                    '#80ff00', '#00ff00', '#00ff80', 
+                    '#00ffff', '#0080ff', '#0000ff', 
+                    '#8000ff', '#ff00ff', '#ff0080'
+                ];
+                
+                let result = '';
+                const steps = text.length;
+                for (let i = 0; i < steps; i++) {
+                    const ratio = i / (steps - 1);
+                    const colorIndex = Math.floor(ratio * (rainbowColors.length - 1));
+                    const nextColorIndex = Math.min(colorIndex + 1, rainbowColors.length - 1);
+                    const colorRatio = (ratio * (rainbowColors.length - 1)) % 1;
+                    
+                    const color = interpolateColor(
+                        rainbowColors[colorIndex], 
+                        rainbowColors[nextColorIndex], 
+                        colorRatio
+                    );
+                    
+                    result += `<span style="color: ${color}">${escapeHtml(text[i])}</span>`;
+                }
+                return result;
+            }
+
+            function applyRainbowAlternateEffect(text) {
+                const rainbowColors = [
+                    '#ff0000', '#ff8000', '#ffff00', 
+                    '#80ff00', '#00ff00', '#00ff80', 
+                    '#00ffff', '#0080ff', '#0000ff', 
+                    '#8000ff', '#ff00ff', '#ff0080'
+                ];
+                
+                let result = '';
+                for (let i = 0; i < text.length; i++) {
+                    const colorIndex = i % rainbowColors.length;
+                    const nextColorIndex = (i + 1) % rainbowColors.length;
+                    result += `<span style="color: ${rainbowColors[colorIndex]}">${escapeHtml(text[i])}</span>`;
+                }
+                return result;
+            }
+
+            function applyGradientEffect(text, colors) {
+                let result = '';
+                const steps = text.length;
+                for (let i = 0; i < steps; i++) {
+                    const ratio = i / (steps - 1);
+                    const color = getGradientColor(colors, ratio);
+                    result += `<span style="color: ${color}">${escapeHtml(text[i])}</span>`;
+                }
+                return result;
+            }
+
+            function applyFadeEffect(text, startColor, endColor) {
+                let result = '';
+                const steps = text.length;
+                for (let i = 0; i < steps; i++) {
+                    const ratio = i / (steps - 1);
+                    const color = interpolateColor(startColor, endColor, ratio);
+                    result += `<span style="color: ${color}">${escapeHtml(text[i])}</span>`;
+                }
+                return result;
+            }
+
+            function applyAlternateEffect(text, color1, color2) {
+                let result = '';
+                for (let i = 0; i < text.length; i++) {
+                    const color = i % 2 === 0 ? color1 : color2;
+                    result += `<span style="color: ${color}">${escapeHtml(text[i])}</span>`;
+                }
+                return result;
+            }
+
+            function applyRandomEffect(text) {
+                let result = '';
+                for (let i = 0; i < text.length; i++) {
+                    const randomColor = getRandomColor();
+                    result += `<span style="color: ${randomColor}">${escapeHtml(text[i])}</span>`;
+                }
+                return result;
+            }
+
+            function getGradientColor(colors, ratio) {
+                if (colors.length === 1) return colors[0];
+                
+                const segmentSize = 1 / (colors.length - 1);
+                const segmentIndex = Math.min(
+                    Math.floor(ratio / segmentSize),
+                    colors.length - 2
+                );
+                const segmentRatio = (ratio % segmentSize) / segmentSize;
+                
+                return interpolateColor(
+                    colors[segmentIndex],
+                    colors[segmentIndex + 1],
+                    segmentRatio
+                );
+            }
+
+            function interpolateColor(color1, color2, ratio) {
+                const r1 = parseInt(color1.substring(1, 3), 16);
+                const g1 = parseInt(color1.substring(3, 5), 16);
+                const b1 = parseInt(color1.substring(5, 7), 16);
+                
+                const r2 = parseInt(color2.substring(1, 3), 16);
+                const g2 = parseInt(color2.substring(3, 5), 16);
+                const b2 = parseInt(color2.substring(5, 7), 16);
+                
+                const r = Math.round(r1 + (r2 - r1) * ratio);
+                const g = Math.round(g1 + (g2 - g1) * ratio);
+                const b = Math.round(b1 + (b2 - b1) * ratio);
+                
+                return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+            }
+
+            function getComplementaryColor(hex) {
+                // Convert hex to RGB
+                let r = parseInt(hex.substring(1, 3), 16);
+                let g = parseInt(hex.substring(3, 5), 16);
+                let b = parseInt(hex.substring(5, 7), 16);
+                
+                // Get complementary color
+                r = 255 - r;
+                g = 255 - g;
+                b = 255 - b;
+                
+                // Convert back to hex
+                return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+            }
+
+            function getRandomColor() {
+                return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function resetPresetButtons() {
+                presetButtons.forEach(btn => btn.classList.remove('active'));
+            }
+
+            function resetEffectButtons() {
+                effectButtons.forEach(btn => btn.classList.remove('active'));
+                document.querySelector('.effect-btn[data-effect="none"]').classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
